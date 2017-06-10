@@ -232,6 +232,9 @@ def primefactor(a,b,c,d):
        b.append(n)
     return a+1,b,c,d
 
+def decrement(a,b,c,d):
+    return a+1,b-1,c,d
+
 def commandrun(comm,pos,pushed,Array,Output):
     if comm=='1':
         return add(pos,pushed,Array,Output)
@@ -258,25 +261,25 @@ def commandrun(comm,pos,pushed,Array,Output):
        return Arraycheck(pos,pushed,Array,Output)
 
     elif comm=='111':
-       return donextiftrue(pos,pushed,Array,Output)
+        return donextiftrue(pos,pushed,Array,Output)
     elif comm=='112':
-       return cube(pos,pushed,Array,Output)
+        return cube(pos,pushed,Array,Output)
     elif comm=='113':
-       return nthpower(pos,pushed,Array,Output)
+        return nthpower(pos,pushed,Array,Output)
     elif comm=='121':
-       return nthroot(pos,pushed,Array,Output)
+        return nthroot(pos,pushed,Array,Output)
     elif comm=='122':
-       return sqroot(pos,pushed,Array,Output)
+        return sqroot(pos,pushed,Array,Output)
     elif comm=='123':
         return cubroot(pos,pushed,Array,Output)
     elif comm=='131':
-       return factorial(pos,pushed,Array,Output)
+        return factorial(pos,pushed,Array,Output)
     elif comm=='132':
-       return rand2num(pos,pushed,Array,Output)
+        return rand2num(pos,pushed,Array,Output)
     elif comm=='133':
-       return pushnext(pos,pushed,Array,Output)
+        return pushnext(pos,pushed,Array,Output)
     elif comm=='211':
-       return Arrayempty(pos,pushed,Array,Output)
+        return Arrayempty(pos,pushed,Array,Output)
     elif comm=='212':
         return sine(pos,pushed,Array,Output)
     elif comm=='213':
@@ -284,25 +287,27 @@ def commandrun(comm,pos,pushed,Array,Output):
     elif comm=='221':
         return tangent(pos,pushed,Array,Output)
     elif comm=='222':
-       return increment(pos,pushed,Array,Output)
+        return increment(pos,pushed,Array,Output)
     elif comm=='223':
-       return outputnext(pos,pushed,Array,Output)
+        return outputnext(pos,pushed,Array,Output)
+    elif comm=='231':
+        return decrement(pos,pushed,Array,Output)
     elif comm=='232':
-       return outputpushed(pos,pushed,Array,Output)
+        return outputpushed(pos,pushed,Array,Output)
     elif comm=='233':
-       return clearOut(pos,pushed,Array,Output)
+        return clearOut(pos,pushed,Array,Output)
     elif comm=='311':
-       return reallybignumber(pos,pushed,Array,Output)
+        return reallybignumber(pos,pushed,Array,Output)
     elif comm=='312':
-       return boolrand(pos,pushed,Array,Output)
+        return boolrand(pos,pushed,Array,Output)
     elif comm=='313':
-       return fibdex(pos,pushed,Array,Output)
+        return fibdex(pos,pushed,Array,Output)
     elif comm=='321':
-       return pushArr0(pos,pushed,Array,Output)
+        return pushArr0(pos,pushed,Array,Output)
     elif comm=='322':
-       return makeArr0pushed(pos,pushed,Array,Output)
+        return makeArr0pushed(pos,pushed,Array,Output)
     elif comm=='323':
-       return primefactor(pos,pushed,Array,Output)
+        return primefactor(pos,pushed,Array,Output)
 
 
 pos=0
