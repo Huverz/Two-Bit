@@ -34,7 +34,46 @@ Commands:
 
 33-Prepends numbers for arguments.  
 
+111-If pushed is not 0, the next command will be performed, otherwise, the next command will be skipped
 
+112-Pushes the cube of pushed
 
-More coming soon!
+113-Pushes pushed to the power of its argument
 
+121-Pushes the argumentth root of pushed
+
+122-Pushes the square root of pushed
+
+123-Pushes the cubed root of pushed
+
+133-Pushes its argument
+
+211-Empties Array
+
+212-Pushes the sine of pushed
+
+213-Pushes the cosine of pushed
+
+221-Pushes the tangent of pushed
+
+222-Push pushed plus 1
+
+223-Apppends its argument to Output
+
+231-Push pushed minus 1
+
+232-Appends pushed to Output
+
+233-Empties Output
+
+311-Pushes a really big number that I am currently calculating
+
+312-Randomly pushes either 0 or 1
+
+313-Pushes the number at the pushed index of the Fibonacci Sequence
+
+321-Push the number at index 0 of Array
+
+322-Sets index 0 of Array to pushed
+
+323-Pushes the prime factors of pushed to Array starting at index 0 and going up
