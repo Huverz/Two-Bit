@@ -6,39 +6,13 @@ Array=[]
 Output=[]
 pushed=0
 
-got=sys.stdin.readlines()
-
-got=raw_input("")
-
-blah=0
-for char in got:
-    blah+=1
-    if char.isdigit():
-        char=int(char)
-    if blah==1:
-        pushed=char
-    else:
-        Array.append(char)
-
-def split(code):#DON'T TOUCH THIS EVER!!  IT WILL BREAK AGAIN!!
-    commands=[]
-    command=''
-    for num in code:#splits code into sequences on 0s
-        if num!='0':
-            command+=num
-        else:
-            commands.append(command)
-            command=[]
-    commands.append(command)
-
-    return commands
-
+pushed=int(sys.stdin.readlines())
 
 f=open("bank1.txt","r")
 bank1=f.read()
 f.close()
-commands1=split(bank1)
-print commands1
+commands1=bank1.split("0")
+  
 
 
 def nextarg(a,b):
@@ -196,8 +170,8 @@ def clearOut(a,b,c,d):
     return a,b,[],d
 
 def reallybignum(a,b,c,d):
-    b=9e9999999
-    for a in range(9e99999999):
+    b=9999
+    for a in range(b):
         b=b**b
     return a+1,b,c,d
 
@@ -235,79 +209,25 @@ def primefactor(a,b,c,d):
 def decrement(a,b,c,d):
     return a+1,b-1,c,d
 
+commands_mapping = {#Thanks to kckennylau for this!  Didn't know it was a thing.
+    '1':add, '2':subtract, '3':multiply,
+    
+    '11':divide, '12':Arrayreplace, '13':primecheck,
+    '21':equalbool, '22':notequalbool, '23':greaterbool,
+    '31':lesserbool, '32':Arraycheck,
+    
+    '111':donextiftrue, '112':cube, '113':nthpower,
+    '121':nthroot, '122':sqroot, '123':cubroot,
+    '131':factorial, '132':rand2num, '133':pushnext,
+    '211':Arrayempty, '212':sine, '213':cosine,
+    '221':tangent, '222':increment, '223':outputnext,
+    '231':decrement, '232':outputpushed, '233':clearOut,
+    '311':reallybignumber, '312':boolrand, '313':fibdex,
+    '321':pushArr0, '322':makeArr0pushed, '323':primefactor,
+}
+  
 def commandrun(comm,pos,pushed,Array,Output):
-    if comm=='1':
-        return add(pos,pushed,Array,Output)
-    elif comm=='2':
-        return subtract(pos,pushed,Array,Output)
-    elif comm=='3':
-        return multiply(pos,pushed,Array,Output)
-        
-    elif comm=='11':
-        return divide(pos,pushed,Array,Output)
-    elif comm=='12':
-        return Arrayreplace(pos,pushed,Array,Output)
-    elif comm=='13':
-        return primecheck(pos,pushed,Array,Output)
-    elif comm=='21':
-        return equalbool(pos,pushed,Array,Output)
-    elif comm=='22':
-        return notequalbool(pos,pushed,Array,Output)
-    elif comm=='23':
-        return greaterbool(pos,pushed,Array,Output)
-    elif comm=='31':
-        return lesserbool(pos,pushed,Array,Output)
-    elif comm=='32':
-       return Arraycheck(pos,pushed,Array,Output)
-
-    elif comm=='111':
-        return donextiftrue(pos,pushed,Array,Output)
-    elif comm=='112':
-        return cube(pos,pushed,Array,Output)
-    elif comm=='113':
-        return nthpower(pos,pushed,Array,Output)
-    elif comm=='121':
-        return nthroot(pos,pushed,Array,Output)
-    elif comm=='122':
-        return sqroot(pos,pushed,Array,Output)
-    elif comm=='123':
-        return cubroot(pos,pushed,Array,Output)
-    elif comm=='131':
-        return factorial(pos,pushed,Array,Output)
-    elif comm=='132':
-        return rand2num(pos,pushed,Array,Output)
-    elif comm=='133':
-        return pushnext(pos,pushed,Array,Output)
-    elif comm=='211':
-        return Arrayempty(pos,pushed,Array,Output)
-    elif comm=='212':
-        return sine(pos,pushed,Array,Output)
-    elif comm=='213':
-        return cosine(pos,pushed,Array,Output)
-    elif comm=='221':
-        return tangent(pos,pushed,Array,Output)
-    elif comm=='222':
-        return increment(pos,pushed,Array,Output)
-    elif comm=='223':
-        return outputnext(pos,pushed,Array,Output)
-    elif comm=='231':
-        return decrement(pos,pushed,Array,Output)
-    elif comm=='232':
-        return outputpushed(pos,pushed,Array,Output)
-    elif comm=='233':
-        return clearOut(pos,pushed,Array,Output)
-    elif comm=='311':
-        return reallybignumber(pos,pushed,Array,Output)
-    elif comm=='312':
-        return boolrand(pos,pushed,Array,Output)
-    elif comm=='313':
-        return fibdex(pos,pushed,Array,Output)
-    elif comm=='321':
-        return pushArr0(pos,pushed,Array,Output)
-    elif comm=='322':
-        return makeArr0pushed(pos,pushed,Array,Output)
-    elif comm=='323':
-        return primefactor(pos,pushed,Array,Output)
+    return commands_mapping[comm](pos,pushed,Array,Output)
 
 
 pos=0
