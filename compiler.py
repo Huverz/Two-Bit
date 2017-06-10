@@ -78,7 +78,7 @@ def subtract(a,b,c,d):#Subtracts next from pushed, pushes zero if no next
 
 def divide(a,b,c,d):#Divides pushed by next, pushes one if no next
     e,f=nextarg(a,1)
-    return f+2, b/e), c, d
+    return f+2, b/e, c, d
 
 def multiply(a,b,c,d):#Multiplies pushed by next, pushed pushed squared if no next
     e,f=nextarg(a,1)
@@ -207,7 +207,7 @@ def fibdex(a,b,c,d):
     e,f=nextarg(a,1)
     fib=[0,1]
     while len(fib)<e:
-        fib.append(fib[len(fib)-1]+fib[len(fib)]-2]
+        fib.append(fib[len(fib)-1]+fib[len(fib)]-2)
     b=fib[len(fib)]
     return f+1,b,c,d
 
@@ -313,8 +313,6 @@ while pos <= len(commands1):
 if len(Output)>0:
     for x in Output:
         sys.stdout.write(str(x))
-        print str(x)
 else:
     sys.stdout.write(str(pushed))
-    print str(pushed)
 
