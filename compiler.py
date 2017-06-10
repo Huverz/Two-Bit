@@ -8,6 +8,8 @@ pushed=0
 
 got=sys.stdin.readlines()
 
+got=raw_input("")
+
 blah=0
 for char in got:
     blah+=1
@@ -47,18 +49,17 @@ def nextarg(a,b):
         return int(c+1,3),a
 
     elif c=='32':#check for taking value from Array
-        return Array[nextarg(c+b,1)],a
-
-    elif c=='132':#randomize between next and 2nd
-        return random.randint(nextarg(c+b,1),nextarg(c+b,2)),a
+        return Array[nextarg(c+b,1)],a+1
 
     elif c=='223':#gives pushed for use in nexts
         return pushed,a
 
-    elif c=='311':#randomized between pushed and next
-        if pushed<nextarg(a+b,1):
-            return random.randint(pushed,nextarg(a+b,1)),a
-        return random.randint(nextarg(a+b,1),pushed),a
+    elif c=='132':#randomized between pushed and next
+        l,a=nextarg(a+b,1)
+        m,a=nextarg(a+b,2)
+        if l<m:
+            return random.randint(l,m),a+2
+        return random.randint(m,l),a+2
 
     elif c=='312':#random truthy/falsy value
         return random.randint(0,1),a
@@ -313,6 +314,7 @@ while pos <= len(commands1):
 if len(Output)>0:
     for x in Output:
         sys.stdout.write(str(x))
+        print str(x)
 else:
     sys.stdout.write(str(pushed))
-
+    print str(pushed)
