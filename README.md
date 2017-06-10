@@ -4,7 +4,7 @@ This language is still in the developmental stages!  This means that things can 
 
 This language has three types of of variable.  The first one is pushed, which is automatically recieved by each commands as input.  If the command does nothing with pushed, it typically simply pushes what was pushed to it.  The second is Array, an array which can be accessed by index.  The third is Output, which is also an array accessed by index.  At the end of the program, if Output is empty, pushed will automatically be outputted, otherwise the contents of Output will be.  
 
-Command List:
+Commands:
 
 0-Seperates commands
 
@@ -26,10 +26,15 @@ Command List:
 
 22-Checks if its two arguments, or pushed and its argument, are not equal, returning 1 for true, and 0 for false
 
-23-Checks if its first argument is greater than its second argument, or pushed if there is no second argument, returning 1 for true, and 
-0 for false
+23-Checks if its first argument is greater than its second argument, or pushed if there is no second argument, returning 1 for true, and 0 for false
 
 31-Checks if its first argument is less than its second argument, or pushed if there is no second argument, returning 1 for true, and 0 for false
+
+32-Pushes the value at the indice of Array equal to its argument.  Can also be used as an arugment, to give the value at the index of Array equal to its argument.  
+
+33-Prepends numbers for arguments.  
+
+
 
 More coming soon!
 
